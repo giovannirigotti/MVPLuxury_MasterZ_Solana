@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certfier Home</title>
+    <link rel="icon" type="image/x-icon" href="./images/diamond.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="./images/logo_small_noBG.png" width="40" height="40" class="d-inline-block align-center" alt="">
+          LuxCe
+        </a>
+        <button class="btn btn-outline-danger my-2 my-sm-0" onclick="logout()">Logout</button>
+    </nav>
+    <div class="bg">
+        <div class="content">
+            <h1>Home</h1>
+            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createCertificateModal">Create Certificate</button>
+            <br><br>
+            <h4>NFT Generated:</h4>            
+            <div id="emptyNFT"></div>
+        </div>
+    </div>
+
+    <!-- Create Certificate Modal -->
+    <div class="modal fade" id="createCertificateModal" tabindex="-1" role="dialog" aria-labelledby="createCertificateModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createCertificateModalLabel">Create Certificate</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="createCertificateForm">
+                        <div class="form-group">
+                            <label for="image">Upload Image</label>
+                            <input type="file" class="form-control-file" id="image" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="brandName">Brand Name</label>
+                            <input type="text" class="form-control" id="brandName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modelName">Model Name</label>
+                            <input type="text" class="form-control" id="modelName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productionYear">Production Year</label>
+                            <input type="number" class="form-control" id="productionYear" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="watchOwner">Watch Owner Address</label>
+                            <input type="text" class="form-control" id="watchOwner" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="serialNumber">Serial Number</label>
+                            <input type="text" class="form-control" id="serialNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Watch description</label>
+                            <input type="text" class="form-control" id="description" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="watchStatus">Watch Status</label>
+                            <input type="text" class="form-control" id="watchStatus" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="watchPriceEstimation">Watch Price Estimation</label>
+                            <input type="number" class="form-control" id="watchPriceEstimation" required>
+                        </div>
+                        <button id="submit-nft" class="btn btn-primary" type="button" onclick="generateNFT()">Submit</button>
+                        <div id="spinner" class="spinner-border text-primary" role="status" hidden="true">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="bundle.js"></script>
+</body>
+</html>
